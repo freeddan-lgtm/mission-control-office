@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Mission Control</title>
+  <meta name="description" content="Daniel Freed's colorful office view — watch which bots are working and on what." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="logo-mark" aria-hidden="true">🛸</div>
+      <div>
+        <h1>Mission Control</h1>
+        <p class="tagline">Office view · who’s working · on what</p>
+      </div>
+      <div class="pulse" id="updatedLabel">Loading…</div>
+    </header>
+
+    <section class="office-panel" aria-label="Office floor">
+      <svg class="office-svg" viewBox="0 0 400 220" role="img" aria-label="Illustrated office with desks and robots">
+        <defs>
+          <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFE8A3"/>
+            <stop offset="100%" stop-color="#FFD36A"/>
+          </linearGradient>
+          <linearGradient id="wallGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7C5CFF"/>
+            <stop offset="55%" stop-color="#5B8CFF"/>
+            <stop offset="100%" stop-color="#00C2A8"/>
+          </linearGradient>
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+
+        <rect x="0" y="0" width="400" height="220" rx="18" fill="url(#wallGrad)"/>
+        <rect x="12" y="48" width="376" height="160" rx="14" fill="url(#floorGrad)"/>
+        <rect x="28" y="12" width="70" height="28" rx="6" fill="#B8E8FF" opacity="0.9"/>
+        <rect x="106" y="12" width="70" height="28" rx="6" fill="#B8E8FF" opacity="0.75"/>
+        <text x="200" y="32" text-anchor="middle" font-family="Nunito, sans-serif" font-size="14" font-weight="800" fill="#fff">🏠 The Office</text>
+        <ellipse cx="360" cy="175" rx="14" ry="8" fill="#2E8B57"/>
+        <rect x="356" y="175" width="8" height="18" rx="2" fill="#8B5A2B"/>
+        <circle cx="360" cy="162" r="12" fill="#3CB371"/>
+        <circle cx="350" cy="168" r="8" fill="#2E8B57"/>
+        <circle cx="370" cy="168" r="8" fill="#2E8B57"/>
+        <ellipse cx="200" cy="175" rx="70" ry="18" fill="#FF6B9D" opacity="0.35"/>
+
+        <g id="desksGroup"></g>
+        <g id="bubblesGroup"></g>
+      </svg>
+    </section>
+
+    <section class="projects-panel" aria-label="Grok projects">
+      <h2>Grok projects</h2>
+      <div class="project-list" id="projectList"></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
